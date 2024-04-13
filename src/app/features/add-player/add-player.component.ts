@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AddPlayerComponent {
   player!: string;
+
+  async onSubmit() {
+    console.log(`The NBA player inputted: ${this.player}`)
+  }
 }
