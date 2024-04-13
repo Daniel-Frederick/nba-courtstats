@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Player } from '../../models/player'
 
 @Component({
   selector: 'app-add-player',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './add-player.component.scss'
 })
 export class AddPlayerComponent {
-  player!: string;
+  player!: Player;
 
   async onSubmit() {
     console.log(`The NBA player inputted: ${this.player}`)

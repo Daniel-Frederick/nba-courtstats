@@ -5,12 +5,26 @@ section {
   text-align: center;
 }
 
-p {
-  padding: 20px;
-  margin: 0;
+div {
+  p {
+    margin: 0
+  }
 }
 
 .title {
   front-size: 4.5rem;
   /*font-family: "comic sans"; */
+}
+
+.add-player-wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+#button {
+  width: 75px;
+  height: 25px;
 }

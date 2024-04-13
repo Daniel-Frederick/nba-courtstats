@@ -1,6 +1,10 @@
 <section>
   <h1 class="title">Enter a NBA Player!</h1>
   <form (ngSubmit)="onSubmit()">
-   <input type="text" name="NBA-Player" [(ngModel)]="player" placeholder="NBA Player...">
+    <div class="add-player-wrapper">
+      <p>NBA Player:</p>
+      <input type="text" name="NBA-Player" [(ngModel)]="player" placeholder="NBA Player...">
+      <button type="submit" title="Add Player" id="button">Enter</button>
+    </div>
   </form>
 </section>
