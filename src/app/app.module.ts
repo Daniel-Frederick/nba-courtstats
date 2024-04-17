@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './features/header/header.component';
 import { AddPlayerComponent } from './features/add-player/add-player.component';
+import { SinglePlayerComponent } from './features/single-player/single-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AddPlayerComponent
+    AddPlayerComponent,
+    SinglePlayerComponent
   ],
   imports: [
     BrowserModule,
