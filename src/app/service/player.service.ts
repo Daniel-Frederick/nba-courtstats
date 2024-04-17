@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Player } from '../models/player';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Player } from '../models/player';
 export class PlayerService {
   constructor() {}
 
-  getPlayer(player: Player) {
-    return `From the service:  ${player}`;
+  getTeam(team: Team) {
+    return `From the service:  ${team}`;
   }
 }
