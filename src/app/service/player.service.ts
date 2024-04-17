@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Player } from '../models/player'
+import { Player } from '../models/player';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayerService {
-
-  constructor() { }
+  constructor() {}
 
   getPlayer(player: Player) {
-    return console.log("from the service: ", player)
+    return `From the service:  ${player}`;
   }
 }
