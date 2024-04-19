@@ -26,11 +26,9 @@ export class AddPlayerComponent {
     if(this.teamName != undefined) {
       this.playerService.getTeam(this.teamName).then(data => {
         this.team = data;
-        //console.log('plz work: value: ', this.team)
-        //console.log('plz work: value: ', this.team.name)
-       //console.log('plz work: value: ', this.team.logo)
+        console.log('add-player - team: ', this.team);
+        this.output.emit(this.team);
       })
-      this.output.emit(this.team);
     }
     else {
       console.log('Enter a Team!')

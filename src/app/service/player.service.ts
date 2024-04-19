@@ -30,8 +30,7 @@ export class PlayerService {
     try {
       this.response = await axios.request(options);
       console.log('service - response.data: ', this.response.data);
-      console.log('response.data.response[0]: ', this.response.data.response[0])
-      //return response.data.response[0];
+      //console.log('response.data.response[0]: ', this.response.data.response[0])
       this.team = {
         teamid: this.response.data.response[0].id,
         name: this.response.data.response[0].name,
@@ -43,7 +42,6 @@ export class PlayerService {
     catch(error) {
       console.error(error);
     }
-    //if(response != undefined) return response.data.response[0];
       return this.team = {
         teamid: 0,
         name: '',
