@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './features/header/header.component';
 import { AddPlayerComponent } from './features/add-player/add-player.component';
 import { SinglePlayerComponent } from './features/single-player/single-player.component';
+import { TeamTableComponent } from './features/team-table/team-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AddPlayerComponent,
-    SinglePlayerComponent
+    SinglePlayerComponent,
+    TeamTableComponent
   ],
   imports: [
     BrowserModule,
