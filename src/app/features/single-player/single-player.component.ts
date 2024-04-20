@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Team } from '../../models/team'
 
 @Component({
@@ -6,17 +6,28 @@ import { Team } from '../../models/team'
   templateUrl: './single-player.component.html',
   styleUrl: './single-player.component.scss'
 })
-export class SinglePlayerComponent implements OnInit {
+export class SinglePlayerComponent implements OnInit, OnChanges {
   @Input() team!: Team;
 
   ngOnInit(): void {
-    if(this.team != undefined){
-    let content = `
-      <div>
-        <h2>{{ team.name }}<h2>
-        <img src="${this.team.logo}" alt="${this.team.name} Logo">
-      </div>
-      `
+    console.log('single-player in ngOnInit')
+ }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('single-player in Changes')
+    if(this.team){
+      const section = document.querySelector('#tables-section')
+      if(section) {
+      const teamTitleTag = document.createElement('div');
+
+      teamTitleTag.innerHTML = `
+        <div>
+          <h2>{{ team.name }}<h2>
+          <img src="${this.team.logo}" alt="${this.team.name} Logo">
+        </div>
+        `
+        section.appendChild(teamTitleTag);
+      }
       /*
        1. Create div as a wrapper for the title and player table
        2. add context(title) to the beginning of the new div
@@ -28,6 +39,7 @@ export class SinglePlayerComponent implements OnInit {
       console.log('team = undefined :(')
     }
 
- }
+
+  }
 
 }
