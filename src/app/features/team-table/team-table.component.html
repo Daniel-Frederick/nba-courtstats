@@ -1,3 +1,6 @@
-<app-add-player></app-add-player>
-<app-single-player></app-single-player>
+<app-add-player (addTeam)="addTeam($event)"></app-add-player>
+<app-single-player
+  *ngFor="let team of teams"
+  [team]="team"
+></app-single-player>
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Team } from '../../models/team';
 
 @Component({
   selector: 'app-team-table',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './team-table.component.scss'
 })
 export class TeamTableComponent {
+  teams: Team[] = [];
 
+  addTeam(team: any) {
+    this.teams.push(team);
+  }
 }
