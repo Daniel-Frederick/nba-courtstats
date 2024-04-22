@@ -19,13 +19,13 @@ export class PlayerService {
       method: 'GET',
       url: 'https://api-nba-v1.p.rapidapi.com/teams',
       params: {
-        search: teamName
+        search: teamName,
       },
       headers: {
         'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
-        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-      }
-    }
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+      },
+    };
 
     try {
       this.response = await axios.request(options);
@@ -34,24 +34,21 @@ export class PlayerService {
       this.team = {
         teamid: this.response.data.response[0].id,
         name: this.response.data.response[0].name,
-        logo: this.response.data.response[0].logo
-      }
+        logo: this.response.data.response[0].logo,
+      };
       return this.team;
       //console.log(response.response.length)
-    }
-    catch(error) {
+    } catch (error) {
       console.error(error);
     }
-      return this.team = {
-        teamid: 0,
-        name: '',
-        logo: ''
-      }
+    return (this.team = {
+      teamid: 0,
+      name: '',
+      logo: '',
+    });
   }
 
   getPlayer(team: Team) {
     return team;
   }
 }
-
-
