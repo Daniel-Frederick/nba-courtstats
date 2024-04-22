@@ -9,11 +9,12 @@ import axios from 'axios';
 export class PlayerService {
   response!: any;
   team!: Team;
+  player!: Player;
 
   constructor() {}
 
   async getTeam(teamName: string): Promise<Team> {
-    console.log(`From the service:  ${teamName}`);
+    console.log(`From the service getTeam:  ${teamName}`);
 
     const options = {
       method: 'GET',
@@ -48,7 +49,31 @@ export class PlayerService {
     });
   }
 
-  getPlayer(team: Team) {
-    return team;
+  async getPlayers(teamID: number) {
+    console.log(`From the service getPlayer: ${teamID}`)
+
+    const options = {
+      method: 'GET',
+      url: 'https://api-nba-v1.p.rapidapi.com/teams',
+      params: {
+        team: teamID,
+        season: '2023'
+      },
+      headers: {
+        'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+      },
+    };
+
+    try {
+     this.response = await axios.request(options);
+      console.log(this.response)
+
+      //this.player = {}
+    }
+    catch (error) {
+      console.log(error)
+    }
+
   }
 }
