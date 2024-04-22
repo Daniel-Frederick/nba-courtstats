@@ -1,4 +1,5 @@
-export class Player { // All current stats
+export class Player {
+  // All current stats
   playerid!: number; // Allows me to to look up players in the API
   teamid!: number; // Allows me to look up teams in the API
   fullName!: string; // First and last name
