@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { Team } from '../../models/team';
+import { playerTeam } from '../../models/player-team';
 
 @Component({
   selector: 'app-player-team-list',
   templateUrl: './player-team-list.component.html',
   styleUrl: './player-team-list.component.scss',
 })
-export class TeamTableComponent {
-  teams: Team[] = [];
+export class PlayerTeamListComponent {
+  playerTeams: playerTeam[] = [];
+  team: any;
 
-  addTeam(team: any) {
-    this.teams.push(team);
-  }
+  addTeam(team: any) {}
 }

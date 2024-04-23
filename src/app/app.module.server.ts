@@ -5,8 +5,6 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './features/header/header.component';
 
-import { AddPlayerComponent } from './features/add-team/add-team.component';
-
 @NgModule({
   imports: [AppModule, ServerModule],
   bootstrap: [AppComponent],

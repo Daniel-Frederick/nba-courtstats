@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './features/header/header.component';
-import { AddPlayerComponent } from './features/add-team/add-team.component';
-import { TeamTableComponent } from './features/player-team-list/player-team-list.component';
+import { PlayerTeamListComponent } from './features/player-team-list/player-team-list.component';
 
-const routes: Routes = [{ path: '', component: TeamTableComponent }];
+// For testing
+import { AddTeamComponent } from './features/add-team/add-team.component';
+
+const routes: Routes = [{ path: '', component: PlayerTeamListComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

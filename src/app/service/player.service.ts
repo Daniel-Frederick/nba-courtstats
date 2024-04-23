@@ -9,7 +9,6 @@ import axios from 'axios';
 export class PlayerService {
   response!: any;
   team!: Team;
-  player!: Player;
 
   constructor() {}
 
@@ -49,15 +48,15 @@ export class PlayerService {
     });
   }
 
-  async getPlayers(teamID: number) {
-    console.log(`From the service getPlayer: ${teamID}`)
+  async getPlayers(teamID: number): Promise<Player[]> {
+    console.log(`From the service getPlayers: ${teamID}`);
 
     const options = {
       method: 'GET',
-      url: 'https://api-nba-v1.p.rapidapi.com/teams',
+      url: 'https://api-nba-v1.p.rapidapi.com/players',
       params: {
         team: teamID,
-        season: '2023'
+        season: '2023',
       },
       headers: {
         'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
@@ -65,15 +64,57 @@ export class PlayerService {
       },
     };
 
+    let players: Player[] = [];
+
     try {
-     this.response = await axios.request(options);
-      console.log(this.response)
+      this.response = await axios.request(options);
+      console.log(this.response);
+      console.log(this.response.data.response);
 
-      //this.player = {}
-    }
-    catch (error) {
-      console.log(error)
+      let player: Player;
+      for (let i = 0; i < this.response.data.response.length; i++) {
+        player = {
+          playerid: this.response.data.response[i].id,
+          fullName:
+            this.response.data.response[i].firstname +
+            ' ' +
+            this.response.data.response[i].lastname,
+          height:
+            this.response.data.response[i].height.feets +
+            "' " +
+            this.response.data.response[i].height.inches +
+            `"`,
+          college: this.response.data.response[i].college,
+          position: this.response.data.response[i].leagues.standard.pos,
+          NBAstartYear: this.response.data.response[i].nba.start,
+          weight: this.response.data.response[i].weight.pounds,
+          DOB: this.response.data.response[i].birth.date,
+          country: this.response.data.response[i].birth.country,
+        };
+        //console.log('Player object in service for loop: ', player);
+
+        players.push(player);
+      }
+
+      console.log('players array (service): ', players);
+
+      return players;
+    } catch (error) {
+      console.log(error);
     }
 
+    return (players = [
+      {
+        playerid: NaN,
+        fullName: '',
+        height: '',
+        college: '',
+        position: '',
+        NBAstartYear: NaN,
+        weight: NaN,
+        DOB: '',
+        country: '',
+      },
+    ]);
   }
 }

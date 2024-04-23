@@ -10,20 +10,19 @@ import { Player } from '../../models/player';
 export class AddPlayerComponent implements OnInit {
   @Input() teamid!: number;
   // teamid!: number;
-  player!: Player;
-  testPlayer!: any;
+  players!: Player[];
 
   constructor(private playerService: PlayerService) {}
 
   getPlayers(teamID: number) {
-    // this.teamid = teamID;
     console.log('add-player teamID: ', teamID);
-    console.log('add-player this.teamid: ', this.teamid);
 
     this.playerService.getPlayers(teamID).then((data: any) => {
-      this.testPlayer = data;
-      console.log('this.player: ', this.testPlayer);
+      this.players = data;
+      console.log('this.player: ', this.players);
     });
+
+    //console.log('outside of the promise does this still work? : ', this.players[0].fullName)
   }
 
   ngOnInit(): void {

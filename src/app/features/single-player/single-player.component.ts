@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Team } from '../../models/team';
 import { Player } from '../../models/player';
 
@@ -17,6 +11,8 @@ export class SinglePlayerComponent implements OnInit {
   @Input() team!: Team;
 
   ngOnInit(): void {
+    // I think I don't need this component
+
     // Get rid of:
     // this.team = {
     //    teamid: 1,
