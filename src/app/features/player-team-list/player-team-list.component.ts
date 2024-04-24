@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { playerTeam } from '../../models/player-team';
+import { PlayerTeam } from '../../models/player-team';
+import { Team } from '../../models/team';
 
 @Component({
   selector: 'app-player-team-list',
@@ -7,8 +8,13 @@ import { playerTeam } from '../../models/player-team';
   styleUrl: './player-team-list.component.scss',
 })
 export class PlayerTeamListComponent {
-  playerTeams: playerTeam[] = [];
+  playerTeams: PlayerTeam[] = [];
+  teams: Team[] = [];
   team: any;
 
-  addTeam(team: any) {}
+  addTeam(team: any) {
+    this.team = team;
+    console.log(this.team);
+    this.teams.push(this.team);
+  }
 }

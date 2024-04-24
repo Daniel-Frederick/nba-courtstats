@@ -8,9 +8,10 @@ import { Player } from '../../models/player';
   styleUrl: './add-player.component.scss',
 })
 export class AddPlayerComponent implements OnInit {
-  @Input() teamid!: number;
+  //@Input() teamid!: number;
   // teamid!: number;
   players!: Player[];
+  //player!: player;
 
   constructor(private playerService: PlayerService) {}
 
@@ -21,11 +22,8 @@ export class AddPlayerComponent implements OnInit {
       this.players = data;
       console.log('this.player: ', this.players);
     });
-
-    //console.log('outside of the promise does this still work? : ', this.players[0].fullName)
   }
 
   ngOnInit(): void {
-    console.log(`please work AddPlayerComponent! ${this.teamid}`);
   }
 }

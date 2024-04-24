@@ -11,22 +11,24 @@ import { PlayerService } from '../../service/player.service';
 export class AddTeamComponent {
   //@Output() output: EventEmitter<any> = new EventEmitter<any>();
   @Output() teamid: EventEmitter<number> = new EventEmitter<number>();
+  @Output() addTeam: EventEmitter<Team> = new EventEmitter<Team>();
 
-  teamName!: string;
-  team!: Team;
+  teamName!: string; // User Input
+  team!: Team; // Team Object being sent to other components
 
   constructor(private playerService: PlayerService) {}
 
   async onSubmit() {
     console.log('teamName: ', this.teamName);
     if (this.teamName != undefined) {
-      this.playerService.getTeam(this.teamName).then((data) => {
-        this.team = data;
+      this.playerService.getTeam(this.teamName).then((team) => {
+        this.team = team;
         console.log('add-team: team: ', this.team);
         console.log('teamid: ', this.team.teamid);
 
         const teamid = this.team.teamid;
-        this.teamid.emit(teamid);
+        this.teamid.emit(teamid); // Go to add-player component(switch name to single-player)
+        this.addTeam.emit(team); // Go to single-team and player-team-list components
       });
     } else {
       console.log('Enter a Team!');
