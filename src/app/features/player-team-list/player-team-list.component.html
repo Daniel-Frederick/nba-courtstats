@@ -1,4 +1,4 @@
-<app-add-team (addTeam)="addTeam($event)"></app-add-team>
+<app-add-team (addTeam)="addTeam($event)" (addPlayer)="addPlayer($event)"></app-add-team>
 <!-- <app-single-player *ngFor="let team of teams" [team]="team"></app-single-player> -->
 <app-single-team *ngFor="let team of teams" [team]="team"></app-single-team>
 <!-- <app-add-player *ngFor="let player of players" [player]="player"></app-add-player> -->

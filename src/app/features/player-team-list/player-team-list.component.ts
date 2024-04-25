@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlayerTeam } from '../../models/player-team';
 import { Team } from '../../models/team';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-player-team-list',
@@ -10,11 +11,16 @@ import { Team } from '../../models/team';
 export class PlayerTeamListComponent {
   playerTeams: PlayerTeam[] = [];
   teams: Team[] = [];
-  team: any;
+  players: Player[] = [];
+  //team: any;
 
-  addTeam(team: any) {
-    this.team = team;
-    console.log(this.team);
-    this.teams.push(this.team);
+  addTeam(team: any): void {
+    console.log("team: ", team);
+    this.teams.push(team);
+  }
+
+  addPlayer(player: any): void {
+    console.log("player: ", player)
+    this.players.push(player);
   }
 }

@@ -10,15 +10,7 @@ export class SingleTeamComponent implements OnInit {
   @Input() team!: Team;
 
   ngOnInit(): void {
-    console.log("teammmmmm: ", this.team)
-
-    var node = document.querySelector("section")
-    const content = `
-      ${this.team.name}
-      ${this.team.logo}
-    `
-    node!.append(content)
-
+    console.log("team in single-team: ", this.team)
   }
 
 }

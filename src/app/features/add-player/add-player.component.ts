@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlayerService } from '../../service/player.service';
 import { Player } from '../../models/player';
 
@@ -8,22 +8,24 @@ import { Player } from '../../models/player';
   styleUrl: './add-player.component.scss',
 })
 export class AddPlayerComponent implements OnInit {
-  //@Input() teamid!: number;
-  // teamid!: number;
+  @Output() addPlayer: EventEmitter<Player> = new EventEmitter<Player>();
+
   players!: Player[];
-  //player!: player;
+  player!: Player;
 
   constructor(private playerService: PlayerService) {}
 
   getPlayers(teamID: number) {
     console.log('add-player teamID: ', teamID);
 
-    this.playerService.getPlayers(teamID).then((data: any) => {
+    this.playerService.getPlayers(teamID).then((data: Player[]) => {
+      console.log("data: ", data)
       this.players = data;
       console.log('this.player: ', this.players);
+
+      this.addPlayer.emit(this.player)
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
