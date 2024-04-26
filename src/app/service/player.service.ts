@@ -9,6 +9,7 @@ import axios from 'axios';
 export class PlayerService {
   response!: any;
   team!: Team;
+  players: Player[] = [];
 
   constructor() {}
 
@@ -39,7 +40,7 @@ export class PlayerService {
       return this.team;
       //console.log(response.response.length)
     } catch (error) {
-      console.error(error);
+      console.error('error: for team (service): ', error);
     }
     return (this.team = {
       teamid: 0,
@@ -64,14 +65,13 @@ export class PlayerService {
       },
     };
 
-    let players: Player[] = [];
-
     try {
       this.response = await axios.request(options);
       console.log(this.response);
       console.log(this.response.data.response);
 
       let player: Player;
+      // this.players = []; // Initialize this.players as an empty array
       for (let i = 0; i < this.response.data.response.length; i++) {
         player = {
           playerid: this.response.data.response[i].id,
@@ -91,30 +91,28 @@ export class PlayerService {
           DOB: this.response.data.response[i].birth.date,
           country: this.response.data.response[i].birth.country,
         };
-        //console.log('Player object in service for loop: ', player);
 
-        players.push(player);
+        this.players.push(player);
       }
 
-      console.log('players array (service): ', players);
+      console.log('players array (service): ', this.players);
 
-      return players;
+      return this.players;
     } catch (error) {
-      console.log(error);
+      console.log('error: for player (service): ', error);
+      return [
+        {
+          playerid: NaN,
+          fullName: '',
+          height: '',
+          college: '',
+          position: '',
+          NBAstartYear: NaN,
+          weight: NaN,
+          DOB: '',
+          country: '',
+        },
+      ];
     }
-
-    return (players = [
-      {
-        playerid: NaN,
-        fullName: '',
-        height: '',
-        college: '',
-        position: '',
-        NBAstartYear: NaN,
-        weight: NaN,
-        DOB: '',
-        country: '',
-      },
-    ]);
   }
 }

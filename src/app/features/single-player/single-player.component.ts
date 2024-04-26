@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Team } from '../../models/team';
 import { Player } from '../../models/player';
 
 @Component({
@@ -8,7 +7,9 @@ import { Player } from '../../models/player';
   styleUrl: './single-player.component.scss',
 })
 export class SinglePlayerComponent implements OnInit {
-  @Input() team!: Team;
+  @Input() players!: Player[];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('player in add-player: ', this.players);
+  }
 }

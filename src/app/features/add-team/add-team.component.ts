@@ -9,37 +9,35 @@ import { PlayerService } from '../../service/player.service';
   styleUrl: './add-team.component.scss',
 })
 export class AddTeamComponent {
-  @Output() addPlayer: EventEmitter<Player> = new EventEmitter<Player>();
+  @Output() addPlayers: EventEmitter<Player[]> = new EventEmitter<Player[]>();
   @Output() addTeam: EventEmitter<Team> = new EventEmitter<Team>();
 
   teamName!: string; // User Input
   team!: Team; // Team Object being sent to other components
   teamid!: number;
-  player!: Player;
+  players!: Player[];
 
   constructor(private playerService: PlayerService) {}
 
   async onSubmit() {
     console.log('teamName: ', this.teamName);
-    if (this.teamName != undefined) {
-      this.playerService.getTeam(this.teamName).then((team) => {
-        this.team = team;
-        console.log('add-team: team: ', this.team);
-        console.log('teamid: ', this.team.teamid);
+    if (this.teamName !== undefined) {
+      try {
+        const team = await this.playerService.getTeam(this.teamName);
+        console.log('add-team: team: ', team);
+        console.log('teamid: ', team.teamid);
+        this.teamid = team.teamid;
+        this.addTeam.emit(team);
 
-        this.teamid = this.team.teamid;
-        this.addTeam.emit(team); // Go to single-team and player-team-list components
-      });
-
-      this.playerService.getPlayers(this.teamid).then((player) => {
-        this.player = player;
-        console.log('add-team: player ', this.player)
-
-        this.addPlayer.emit(player);
-      });
+        console.log('is this working? teamid: ', this.teamid);
+        const players = await this.playerService.getPlayers(this.teamid);
+        console.log('add-team: player ', players);
+        this.addPlayers.emit(players);
+      } catch (error) {
+        console.error('Error:', error);
+      }
     } else {
-      console.log('Enter a Team!');
-      // Add boolean that tells the user to enter a team
+      console.log('NO TEAM ENTERED!');
     }
   }
 }
