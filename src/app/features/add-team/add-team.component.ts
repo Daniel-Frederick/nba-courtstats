@@ -9,7 +9,8 @@ import { PlayerService } from '../../service/player.service';
   styleUrl: './add-team.component.scss',
 })
 export class AddTeamComponent {
-  @Output() addPlayers: EventEmitter<Player[]> = new EventEmitter<Player[]>();
+//  @Output() addPlayers: EventEmitter<Player[]> = new EventEmitter<Player[]>();
+  @Output() addPlayers: EventEmitter<any> = new EventEmitter<any>();
   @Output() addTeam: EventEmitter<Team> = new EventEmitter<Team>();
 
   teamName!: string; // User Input
@@ -29,7 +30,6 @@ export class AddTeamComponent {
         this.teamid = team.teamid;
         this.addTeam.emit(team);
 
-        console.log('is this working? teamid: ', this.teamid);
         const players = await this.playerService.getPlayers(this.teamid);
         console.log('add-team: player ', players);
         this.addPlayers.emit(players);

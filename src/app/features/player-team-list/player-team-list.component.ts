@@ -14,7 +14,7 @@ export class PlayerTeamListComponent {
   players: Player[] = [];
   //team: any;
 
-  addTeam(team: any): void {
+  addTeam(team: Team): void {
     console.log("team: ", team);
     this.teams.push(team);
   }

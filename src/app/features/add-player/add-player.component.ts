@@ -9,11 +9,23 @@ import { Player } from '../../models/player';
 })
 export class AddPlayerComponent implements OnInit {
   //@Output() addPlayer: EventEmitter<Player> = new EventEmitter<Player>();
-  @Input() players!: Player[];
+
+  //players!: Player[];
+//  player!: Player;
 
   constructor(private playerService: PlayerService) {}
 
-  ngOnInit(): void {
-    console.log('player in add-player: ', this.players);
-  }
+  /*getPlayers(teamID: number) {
+    console.log('add-player teamID: ', teamID);
+
+    this.playerService.getPlayers(teamID).then((data: Player[]) => {
+      console.log("data: ", data)
+      this.players = data;
+      console.log('this.player: ', this.players);
+
+      this.addPlayer.emit(this.player)
+    });
+  }*/
+
+  ngOnInit(): void {}
 }

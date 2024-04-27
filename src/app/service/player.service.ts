@@ -57,7 +57,7 @@ export class PlayerService {
       url: 'https://api-nba-v1.p.rapidapi.com/players',
       params: {
         team: teamID,
-        season: '2023',
+        season: '2023', // Make sure to change this so it updates to the current year
       },
       headers: {
         'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
@@ -71,7 +71,7 @@ export class PlayerService {
       console.log(this.response.data.response);
 
       let player: Player;
-      // this.players = []; // Initialize this.players as an empty array
+      this.players = []; // Initialize this.players as an empty array
       for (let i = 0; i < this.response.data.response.length; i++) {
         player = {
           playerid: this.response.data.response[i].id,
