@@ -13,24 +13,23 @@ export class SinglePlayerComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('player in single-player: ', this.players);
-    this.players = [this.players[this.players.length - 1]];
-    console.log('singleplayer this.player: ', this.playerz);
+    //this.players = [this.players[this.players.length - 1]];
+    this.players = [this.getLastArray()];
   }
 
   getLastArray(): any {
+    return this.players?.length ? this.players[this.players.length -1] : [];
+    /*
     // Check if players is defined and has at least one array
     if (
       this.players &&
       this.players.length > 0 &&
       Array.isArray(this.players[this.players.length - 1])
     ) {
-      console.log(
-        'why does this not work? : ',
-        this.players[this.players.length - 1]
-      );
       return this.players[this.players.length - 1]; // Return the last array
     } else {
       return []; // Return an empty array if players is not defined or empty
     }
+    */
   }
 }
