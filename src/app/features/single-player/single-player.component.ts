@@ -7,9 +7,30 @@ import { Player } from '../../models/player';
   styleUrl: './single-player.component.scss',
 })
 export class SinglePlayerComponent implements OnInit {
-  @Input() players!: Player[];
+  @Input() players!: Player[]; // array of arrays
+
+  playerz!: Player;
 
   ngOnInit(): void {
-    console.log('player in add-player: ', this.players);
+    console.log('player in single-player: ', this.players);
+    this.players = [this.players[this.players.length - 1]];
+    console.log('singleplayer this.player: ', this.playerz);
+  }
+
+  getLastArray(): any {
+    // Check if players is defined and has at least one array
+    if (
+      this.players &&
+      this.players.length > 0 &&
+      Array.isArray(this.players[this.players.length - 1])
+    ) {
+      console.log(
+        'why does this not work? : ',
+        this.players[this.players.length - 1]
+      );
+      return this.players[this.players.length - 1]; // Return the last array
+    } else {
+      return []; // Return an empty array if players is not defined or empty
+    }
   }
 }

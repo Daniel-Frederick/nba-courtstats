@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let player of players">
+    <tr *ngFor="let player of getLastArray()">
      <td>{{ player.fullName }}</td>
      <td>{{ player.height }}</td>
      <td>{{ player.college }}</td>
@@ -24,4 +24,3 @@
     </tr>
   </tbody>
 </table>
-
