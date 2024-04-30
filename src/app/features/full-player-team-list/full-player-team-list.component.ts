@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { PlayerTeam } from '../../models/player-team';
+import { Team } from '../../models/team';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-full-player-team-list',
   templateUrl: './full-player-team-list.component.html',
-  styleUrl: './full-player-team-list.component.scss'
+  styleUrl: './full-player-team-list.component.scss',
 })
 export class FullPlayerTeamListComponent {
+  @Output() playerteams: EventEmitter<any> = new EventEmitter<any>();
+  // @Input() playerTeam!: any;
 
+  playerTeams: PlayerTeam[] = [];
+  teams: Team[] = [];
+  players: Player[] = [];
+
+  // addTeam(team: any) {
+  //   console.log("fullcomp team: ", team)
+  //   this.teams.push(team);
+  // }
+
+  // addPlayer(player: any) {
+  //   console.log("fullcomp player: ", player)
+  //   this.players.push(player)
+  // }
 }

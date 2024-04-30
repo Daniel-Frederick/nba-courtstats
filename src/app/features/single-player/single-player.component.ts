@@ -9,8 +9,6 @@ import { Player } from '../../models/player';
 export class SinglePlayerComponent implements OnInit {
   @Input() players!: Player[]; // array of arrays
 
-  playerz!: Player;
-
   ngOnInit(): void {
     console.log('player in single-player: ', this.players);
     //this.players = [this.players[this.players.length - 1]];
@@ -19,17 +17,5 @@ export class SinglePlayerComponent implements OnInit {
 
   getLastArray(): any {
     return this.players?.length ? this.players[this.players.length -1] : [];
-    /*
-    // Check if players is defined and has at least one array
-    if (
-      this.players &&
-      this.players.length > 0 &&
-      Array.isArray(this.players[this.players.length - 1])
-    ) {
-      return this.players[this.players.length - 1]; // Return the last array
-    } else {
-      return []; // Return an empty array if players is not defined or empty
-    }
-    */
   }
 }

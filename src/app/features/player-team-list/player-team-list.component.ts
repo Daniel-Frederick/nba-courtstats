@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, OnInit } from '@angular/core';
 import { PlayerTeam } from '../../models/player-team';
 import { Team } from '../../models/team';
 import { Player } from '../../models/player';
@@ -8,19 +8,20 @@ import { Player } from '../../models/player';
   templateUrl: './player-team-list.component.html',
   styleUrl: './player-team-list.component.scss',
 })
-export class PlayerTeamListComponent {
+export class PlayerTeamListComponent implements OnInit {
   playerTeams: PlayerTeam[] = [];
   teams: Team[] = [];
   players: Player[] = [];
-  //team: any;
 
-  addTeam(team: Team): void {
-    console.log("team: ", team);
+  ngOnInit(): void {}
+
+  addTeam(team: any): void {
+    console.log('playerteam team: ', team);
     this.teams.push(team);
   }
 
   addPlayer(player: any): void {
-    console.log("player: ", player)
+    console.log('playerteam player: ', player);
     this.players.push(player);
   }
 }
