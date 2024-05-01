@@ -7,7 +7,7 @@ import { Player } from '../../models/player';
   styleUrl: './single-player.component.scss',
 })
 export class SinglePlayerComponent implements OnInit {
-  @Input() players!: Player[]; // array of arrays
+  @Input() players!: any; // array of arrays
 
   ngOnInit(): void {
     console.log('player in single-player: ', this.players);
@@ -16,6 +16,6 @@ export class SinglePlayerComponent implements OnInit {
   }
 
   getLastArray(): any {
-    return this.players?.length ? this.players[this.players.length -1] : [];
+    return this.players?.length ? this.players[this.players.length - 1] : [];
   }
 }
