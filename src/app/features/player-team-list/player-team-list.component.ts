@@ -21,8 +21,16 @@ export class PlayerTeamListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  teamAndPlayers(teamWithPlayers: any): void {
+    console.log('teamAndPlayers method please work: ', teamWithPlayers);
+    this.addTeam(teamWithPlayers.team);
+    // this.addPlayers(teamWithPlayers.players);
+  }
+
   addTeam(team: Team): void {
-    this.playerTeams.push({ team, players: [] });
+    console.log('addTeam method worked!');
+    this.playerTeams.push({ team, players: ['banana'] });
+    console.log('this.playerTeams: ', this.playerTeams);
   }
 
   // addPlayer(player: any): void {
@@ -31,39 +39,15 @@ export class PlayerTeamListComponent implements OnInit {
   //   }
 
   addPlayer(player: any): void {
+    console.log('addplayer method worked!');
     // console.log('addPlayer method has run!');
     // if (this.playerTeams.length > 0) {
     console.log('addPlayer method is inside the if statement!', player);
     this.playerTeams[this.playerTeams.length - 1].players.push(player);
     // Trigger change detection manually
-    this.cdr.detectChanges();
+    //this.cdr.detectChanges();
     // }
 
     // console.log("this.playerTeams: ", this.playerTeams)
   }
-
-  // old code but not sure what to do with it
-  // ngOnInit(): void {
-  //   // console.log('playerteam team: ', this.team); // going to yell at me
-  //   // console.log('playerteam player: ', this.players); // going to yell at me
-
-  //   // const playerteam = {
-  //   //   players: this.players,
-  //   //   team: this.team,
-  //   // };
-
-  //   // this.playerTeams.push(playerteam);
-  // }
-
-  // addTeam(team: any): void {
-  //   console.log('playerteam team: ', team);
-  //   this.team = team;
-  //   // this.teams.push(team);
-  // }
-
-  // addPlayer(player: any): void {
-  //   console.log('playerteam player: ', player);
-  //   this.players = player;
-  //   // this.players.push(player);
-  // }
 }

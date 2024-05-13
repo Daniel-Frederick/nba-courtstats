@@ -12,7 +12,7 @@ export class SinglePlayerComponent implements OnInit {
   ngOnInit(): void {
     console.log('player in single-player: ', this.players);
     //this.players = [this.players[this.players.length - 1]];
-    this.players = [this.getLastArray()];
+    //this.players = [this.getLastArray()];
   }
 
   getLastArray(): any {

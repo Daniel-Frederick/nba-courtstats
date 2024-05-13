@@ -7,7 +7,9 @@
 <!-- <app-add-team (addTeam)="addTeam($event)" (addPlayers)="addPlayer($event)"></app-add-team>
 <app-full-player-team-list [team]="team" [players]="players"></app-full-player-team-list> -->
 
-<app-add-team (addTeam)="addTeam($event)" (addPlayer)="addPlayer($event)"></app-add-team>
+<!-- <app-add-team (addPlayer)="addPlayer($event)" (addTeam)="addTeam($event)" ></app-add-team> -->
+<app-add-team (teamAndPlayers)="teamAndPlayers($event)" ></app-add-team>
+<!-- teamAndPlayers -->
 
 <div *ngFor="let playerTeam of playerTeams">
   <app-full-player-team-list [team]="playerTeam.team" [players]="playerTeam.players"></app-full-player-team-list>
