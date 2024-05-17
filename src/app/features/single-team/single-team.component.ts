@@ -7,10 +7,17 @@ import { Team } from '../../models/team';
   styleUrl: './single-team.component.scss',
 })
 export class SingleTeamComponent implements OnInit {
-  @Input() team!: Team;
+  @Input() team!: any;
+
+  // team!: any;
 
   ngOnInit(): void {
-    console.log("team in single-team: ", this.team)
+    console.log('team in single-team: ', this.team); // Probably undefined
   }
 
+  getTeam(team: any) {
+    console.log('singleteamcomp: team param: ', team);
+    console.log('this.team: ', this.team);
+    this.team = team;
+  }
 }

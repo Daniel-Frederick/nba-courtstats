@@ -1,13 +1,4 @@
-<!-- <app-add-team (addTeam)="addTeam($event)" (addPlayers)="addPlayers($event)"></app-add-team>
-<app-add-team></app-add-team>
-<app-player-team-list *ngFor="let PlayerTeam of playerTeams"></app-player-team-list> -->
-
-   <!-- <div>
-    <app-single-team [team]="playerTeam.team"></app-single-team>
-    <app-single-player [players]="player"></app-single-player>
-  </div> -->
-
-  <div>
-    <app-single-team [team]="team"></app-single-team>
-    <app-single-player [players]="[players]"></app-single-player>
-  </div>
+  <section>
+    <app-single-team (sendTeam)="sendTeamAgain($event)"></app-single-team>
+    <app-single-player (sendPlayers)="sendPlayersAgain($event)"></app-single-player>
+  </section>

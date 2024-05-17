@@ -28,7 +28,6 @@ export class AddTeamComponent {
       try {
         const team = await this.playerService.getTeam(this.teamName);
         console.log('add-team: team: ', team);
-        console.log('teamid: ', team.teamid);
         this.teamid = team.teamid;
 
         const players = await this.playerService.getPlayers(this.teamid);
@@ -39,6 +38,7 @@ export class AddTeamComponent {
           team,
           players,
         };
+        console.log('add-team teamAndPlayers: ', teamAndPlayers);
         this.addTeamAndPlayers.emit(teamAndPlayers);
       } catch (error) {
         console.error('Error:', error);

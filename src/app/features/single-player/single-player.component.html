@@ -1,3 +1,4 @@
+<section>
 <table>
   <thead>
   <tr>
@@ -24,3 +25,11 @@
     </tr>
   </tbody>
 </table>
+</section>
+<!-- Single Player Display Template -->
+<div>
+  <h3>Players Information</h3>
+  <ul>
+    <li *ngFor="let player of players">{{ player | json }}</li> <!-- Displaying player data for example -->
+  </ul>
+</div>

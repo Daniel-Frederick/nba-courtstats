@@ -2,3 +2,7 @@
   <h1>{{ team.name }}</h1>
   <img src="{{team.logo}}" alt="{{team.name}}'s Logo" >
 </section>
+<div>
+  <h3>Team Information</h3>
+  <p>{{ team | json }}</p> <!-- Displaying the team data for example -->
+</div>

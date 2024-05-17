@@ -1,16 +1,6 @@
-<!-- Old code that works -->
-<!-- <app-add-team (addTeam)="addTeam($event)" (addPlayers)="addPlayer($event)"></app-add-team>
-<app-single-team *ngFor="let team of teams" [team]="team"></app-single-team>
-<app-single-player *ngFor="let player of players" [players]="players"></app-single-player> -->
-
-<!-- this works but only displays one team at a time -->
-<!-- <app-add-team (addTeam)="addTeam($event)" (addPlayers)="addPlayer($event)"></app-add-team>
-<app-full-player-team-list [team]="team" [players]="players"></app-full-player-team-list> -->
-
-<!-- <app-add-team (addPlayer)="addPlayer($event)" (addTeam)="addTeam($event)" ></app-add-team> -->
-<app-add-team (teamAndPlayers)="teamAndPlayers($event)" ></app-add-team>
-<!-- teamAndPlayers -->
-
-<div *ngFor="let playerTeam of playerTeams">
-  <app-full-player-team-list [team]="playerTeam.team" [players]="playerTeam.players"></app-full-player-team-list>
-</div>
+<section>
+  <app-add-team (addTeamAndPlayers)="addTeamAndPlayers($event)" ></app-add-team>
+  <div *ngFor="let playerTeam of playerTeams">
+    <app-full-player-team-list></app-full-player-team-list>
+  </div>
+</section>

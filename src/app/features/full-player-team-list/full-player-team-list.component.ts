@@ -1,35 +1,31 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
-import { PlayerTeam } from '../../models/player-team';
 import { Team } from '../../models/team';
 import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-full-player-team-list',
   templateUrl: './full-player-team-list.component.html',
-  styleUrl: './full-player-team-list.component.scss',
+  styleUrls: ['./full-player-team-list.component.scss'],
 })
-export class FullPlayerTeamListComponent {
+export class FullPlayerTeamListComponent implements OnInit {
   @Input() team!: Team;
   @Input() players!: Player[];
+
+  @Output() sendPlayers2: EventEmitter<any> = new EventEmitter<Player[]>();
+  @Output() sendTeam2: EventEmitter<any> = new EventEmitter<Team>();
 
   ngOnInit(): void {
     console.log('FullPlayerTeamListComponent this.team: ', this.team);
     console.log('FullPlayerTeamListComponent this.players: ', this.players);
   }
 
-  // [team]="team" [players]="players"
+  sendTeamAgain(team: any): void {
+    console.log('Team', team);
+    this.sendTeam2.emit(team);
+  }
 
-  // @Output() playerteams: EventEmitter<any> = new EventEmitter<any>();
-  // @Input() playerTeam!: any;
-  // playerTeams: PlayerTeam[] = [];
-  // team: Team[] = [];
-  // players: Player[] = [];
-  // addTeam(team: any) {
-  //   console.log("fullcomp team: ", team)
-  //   this.teams.push(team);
-  // }
-  // addPlayer(player: any) {
-  //   console.log("fullcomp player: ", player)
-  //   this.players.push(player)
-  // }
+  sendPlayersAgain(players: any): void {
+    console.log('Players', players);
+    this.sendPlayers2.emit(players);
+  }
 }

@@ -13,9 +13,16 @@ export class SinglePlayerComponent implements OnInit {
     console.log('player in single-player: ', this.players);
     //this.players = [this.players[this.players.length - 1]];
     //this.players = [this.getLastArray()];
+    console.log('singleplayercomp: players param: ', this.players);
+    this.players = this.players;
   }
 
   getLastArray(): any {
     return this.players?.length ? this.players[this.players.length - 1] : [];
+  }
+
+  getPlayers(players: any) {
+    console.log('singleplayercomp: players param: ', players);
+    this.players = players;
   }
 }
