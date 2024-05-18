@@ -2,8 +2,13 @@
     display: flex;
     justify-content: center;    
     align-items: center;
+
+    img {
+        width: 1.5em;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
 }
 
-img {
-    width: 1.5em;
-}
