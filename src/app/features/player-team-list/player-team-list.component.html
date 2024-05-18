@@ -1,6 +1,8 @@
 <section>
   <app-add-team (addTeamAndPlayers)="addTeamAndPlayers($event)" ></app-add-team>
   <div *ngFor="let playerTeam of playerTeams">
-    <app-full-player-team-list></app-full-player-team-list>
+    <!-- <app-full-player-team-list></app-full-player-team-list>  -->
+    <app-single-team [team]="playerTeam.team"></app-single-team>
+    <app-single-player [players]="playerTeam.players"></app-single-player>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<section>
+<section id="roster">
 <table>
   <thead>
   <tr>
@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let player of getLastArray()">
+    <tr *ngFor="let player of players">
      <td>{{ player.fullName }}</td>
      <td>{{ player.height }}</td>
      <td>{{ player.college }}</td>
@@ -26,10 +26,3 @@
   </tbody>
 </table>
 </section>
-<!-- Single Player Display Template -->
-<div>
-  <h3>Players Information</h3>
-  <ul>
-    <li *ngFor="let player of players">{{ player | json }}</li> <!-- Displaying player data for example -->
-  </ul>
-</div>

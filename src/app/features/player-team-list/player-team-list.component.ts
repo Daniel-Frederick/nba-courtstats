@@ -89,7 +89,7 @@ export class PlayerTeamListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addTeamAndPlayers(teamWithPlayers: { team: Team; players: Player[] }): void {
+  addTeamAndPlayers(teamWithPlayers: { team: any; players: any }): void {
     console.log('teamAndPlayers method called: ', teamWithPlayers);
 
     this.playerTeams.push(teamWithPlayers);
@@ -100,6 +100,7 @@ export class PlayerTeamListComponent implements OnInit {
     this.sendPlayers.emit(teamWithPlayers.players);
   }
 
+  // Both not getting called
   addTeam(team: Team): void {
     console.log('addTeam method called! team: ', team);
     this.playerTeams.push({ team, players: [] });
