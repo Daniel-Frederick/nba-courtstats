@@ -9,17 +9,7 @@ import { Player } from '../../models/player';
 export class SinglePlayerComponent implements OnInit {
   @Input() players!: any; // array of arrays
 
-  ngOnInit(): void {
-    console.log('player in single-player: ', this.players);
-    //this.players = [this.players[this.players.length - 1]];
-    //this.players = [this.getLastArray()];
-    console.log('singleplayercomp: players param: ', this.players);
-    this.players = this.players;
-  }
-
-  getLastArray(): any {
-    return this.players?.length ? this.players[this.players.length - 1] : [];
-  }
+  ngOnInit(): void {}
 
   getPlayers(players: any) {
     console.log('singleplayercomp: players param: ', players);

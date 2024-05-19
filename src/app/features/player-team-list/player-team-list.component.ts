@@ -77,45 +77,17 @@ import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-player-team-list',
   templateUrl: './player-team-list.component.html',
-  styleUrls: ['./player-team-list.component.scss'], // Corrected from styleUrl to styleUrls
+  styleUrl: './player-team-list.component.scss', 
 })
 export class PlayerTeamListComponent implements OnInit {
-  @Output() sendPlayers: EventEmitter<Player[]> = new EventEmitter<Player[]>();
-  @Output() sendTeam: EventEmitter<Team> = new EventEmitter<Team>();
-
-  playerTeams: { team: any; players: any }[] = []; // Structured type
-
-  constructor(private cdr: ChangeDetectorRef) {}
+  playerTeams: any[] = []; // Structured type
 
   ngOnInit(): void {}
 
-  addTeamAndPlayers(teamWithPlayers: { team: any; players: any }): void {
+  addTeamAndPlayers(teamWithPlayers: any): void {
     console.log('teamAndPlayers method called: ', teamWithPlayers);
 
     this.playerTeams.push(teamWithPlayers);
     console.log('Current playerTeams array: ', this.playerTeams);
-
-    // Emit the team and players
-    this.sendTeam.emit(teamWithPlayers.team);
-    this.sendPlayers.emit(teamWithPlayers.players);
-  }
-
-  // Both not getting called
-  addTeam(team: Team): void {
-    console.log('addTeam method called! team: ', team);
-    this.playerTeams.push({ team, players: [] });
-    console.log('Current playerTeams array: ', this.playerTeams);
-    this.sendTeam.emit(team);
-  }
-
-  addPlayer(player: Player): void {
-    console.log('addPlayer method called! player: ', player);
-    if (this.playerTeams.length > 0) {
-      this.playerTeams[this.playerTeams.length - 1].players.push(player);
-      console.log('Current playerTeams array: ', this.playerTeams);
-      this.sendPlayers.emit(
-        this.playerTeams[this.playerTeams.length - 1].players
-      );
-    }
   }
 }

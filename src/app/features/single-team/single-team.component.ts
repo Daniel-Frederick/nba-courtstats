@@ -9,11 +9,7 @@ import { Team } from '../../models/team';
 export class SingleTeamComponent implements OnInit {
   @Input() team!: any;
 
-  // team!: any;
-
-  ngOnInit(): void {
-    console.log('team in single-team: ', this.team); // Probably undefined
-  }
+  ngOnInit(): void {}
 
   getTeam(team: any) {
     console.log('singleteamcomp: team param: ', team);

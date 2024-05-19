@@ -10,27 +10,23 @@ import { PlayerTeam } from '../../models/player-team';
   styleUrl: './add-team.component.scss',
 })
 export class AddTeamComponent {
-  //  @Output() addPlayers: EventEmitter<Player[]> = new EventEmitter<Player[]>();
-  // @Output() addPlayers: EventEmitter<any> = new EventEmitter<any>();
-  // @Output() addTeam: EventEmitter<Team> = new EventEmitter<Team>();
   @Output() addTeamAndPlayers: EventEmitter<any> = new EventEmitter<any>();
 
-  teamName!: string; // User Input
+  teamName: string = 'Atlanta Hawks'; // Default User Input value
   team!: Team; // Team Object being sent to other components
-  teamid!: number;
   players!: Player[];
+  duplicateTeams: string[] = []; // Keeps track to already entered teams
 
   constructor(private playerService: PlayerService) {}
 
   async onSubmit() {
-    console.log('teamName: ', this.teamName);
-    if (this.teamName !== undefined) {
+    // Check to see of the team is already entered
+    if (!this.duplicateTeams.includes(this.teamName)) {
       try {
         const team = await this.playerService.getTeam(this.teamName);
-        console.log('add-team: team: ', team);
-        this.teamid = team.teamid;
+        this.duplicateTeams.push(team.name)
 
-        const players = await this.playerService.getPlayers(this.teamid);
+        const players = await this.playerService.getPlayers(team.teamid);
         console.log('add-team: player ', players);
 
         // Emit a single object with both team and players
@@ -44,28 +40,8 @@ export class AddTeamComponent {
         console.error('Error:', error);
       }
     } else {
-      console.log('NO TEAM ENTERED!');
+      console.log('This Team has already been entered!');
+      // Tell the user that the team has already been entered. No duplicates
     }
   }
-
-  // async onSubmit() {
-  //   console.log('teamName: ', this.teamName);
-  //   if (this.teamName !== undefined) {
-  //     try {
-  //       const team = await this.playerService.getTeam(this.teamName);
-  //       console.log('add-team: team: ', team);
-  //       console.log('teamid: ', team.teamid);
-  //       this.teamid = team.teamid;
-  //       this.addTeam.emit(team);
-
-  //       const players = await this.playerService.getPlayers(this.teamid);
-  //       console.log('add-team: player ', players);
-  //       this.addPlayers.emit(players);
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //     }
-  //   } else {
-  //     console.log('NO TEAM ENTERED!');
-  //   }
-  // }
 }
