@@ -6,11 +6,11 @@ $padding: 10px;
 $margin: 15px;
 
 header {
-  background-color: $background-color;
+  // background-color: $background-color;
   padding: $padding * 2;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
   margin-bottom: $margin;
 
   .title {
