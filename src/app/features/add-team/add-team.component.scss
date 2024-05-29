@@ -17,6 +17,11 @@ section {
     margin-bottom: $margin;
   }
 
+  .select-team-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
   .add-player-wrapper {
     display: flex;
     flex-direction: column;
@@ -53,6 +58,7 @@ section {
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      height: 41px;
 
       &:hover {
         background-color: darken($primary-color, 10%);

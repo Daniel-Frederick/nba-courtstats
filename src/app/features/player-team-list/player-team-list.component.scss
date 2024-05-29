@@ -1,7 +1,16 @@
+@import '../../../styles.scss';
+
+section {
+    padding: 10px;
+}
+
 .heading-wrapper {
-    background-color: white;
+    background-color: $background-color;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: row;
+    width: 650px;
+    margin: 0 auto;
+    border-radius: 14px;
 }

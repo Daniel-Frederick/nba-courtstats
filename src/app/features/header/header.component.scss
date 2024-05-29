@@ -1,17 +1,15 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$background-color: #f8f9fa;
+@import '../../../styles.scss';
+
 $font-color: #212529;
 $padding: 10px;
-$margin: 15px;
 
 header {
   // background-color: $background-color;
   padding: $padding * 2;
-  border-radius: 8px;
+  // border-radius: 8px;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  margin-bottom: $margin;
+  text-align: right;
+  border-right: 2px solid $primary-color; 
 
   .title {
     color: $font-color;
