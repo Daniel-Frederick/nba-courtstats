@@ -33,12 +33,15 @@ export class PlayerService {
       this.response = await axios.request(options);
       console.log('service - response.data: ', this.response.data);
       //console.log('response.data.response[0]: ', this.response.data.response[0])
+      const shortResponse = this.response.data.response[0];
+
       this.team = {
-        teamid: this.response.data.response[0].id,
-        name: this.response.data.response[0].name,
-        logo: this.response.data.response[0].logo,
-        conference: this.response.data.response[0].leagues.standard.conference,
-        division: this.response.data.response[0].leagues.standard.division
+        // teamid: this.response.data.response[0].id,
+        teamid: shortResponse.id,
+        name: shortResponse.name,
+        logo: shortResponse.logo,
+        conference: shortResponse.leagues.standard.conference ?? "-",
+        division: shortResponse.leagues.standard.division ?? "-"
       };
       return this.team;
       //console.log(response.response.length)
@@ -78,23 +81,21 @@ export class PlayerService {
       let player: Player;
       this.players = []; // Initialize this.players as an empty array
       for (let i = 0; i < this.response.data.response.length; i++) {
+        const shortResponse = this.response.data.response[i];
+
+        // Finish fixing the height property 
+        const playerHeightFeet: string = shortResponse.height.feets ?? "-";
+
         player = {
-          playerid: this.response.data.response[i].id,
-          fullName:
-            this.response.data.response[i].firstname +
-            ' ' +
-            this.response.data.response[i].lastname,
-          height:
-            this.response.data.response[i].height.feets +
-            "' " +
-            this.response.data.response[i].height.inches +
-            `"`,
-          college: this.response.data.response[i].college,
-          position: this.response.data.response[i].leagues.standard.pos,
-          NBAstartYear: this.response.data.response[i].nba.start,
-          weight: this.response.data.response[i].weight.pounds,
-          DOB: this.response.data.response[i].birth.date,
-          country: this.response.data.response[i].birth.country,
+          playerid: shortResponse.id,
+          fullName: shortResponse.firstname + ' ' + shortResponse.lastname,
+          height: shortResponse.height.feets + "' " + shortResponse.height.inches + `"`,
+          college: shortResponse.college ?? "-",
+          position: shortResponse.leagues.standard.pos ?? "-",
+          NBAstartYear: shortResponse.nba.start ?? "-",
+          weight: shortResponse.weight.pounds ?? "-",
+          DOB: shortResponse.birth.date ?? "-",
+          country: shortResponse.birth.country ?? "-",
         };
 
         this.players.push(player);
