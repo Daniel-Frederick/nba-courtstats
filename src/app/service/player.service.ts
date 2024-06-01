@@ -84,15 +84,23 @@ export class PlayerService {
         const shortResponse = this.response.data.response[i];
 
         // Finish fixing the height property 
-        const playerHeightFeet: string = shortResponse.height.feets ?? "-";
+        let playerHeight: string = "-";
+        if(shortResponse.height.feets && shortResponse.height.inches) {
+          playerHeight = shortResponse.height.feets + "' " + shortResponse.height.inches + `"`; 
+        }
+
+        let playerStartYear: string = String(shortResponse.nba.start);
+        if(shortResponse.nba.start === 0) {
+          playerStartYear = "-";
+        }
 
         player = {
           playerid: shortResponse.id,
           fullName: shortResponse.firstname + ' ' + shortResponse.lastname,
-          height: shortResponse.height.feets + "' " + shortResponse.height.inches + `"`,
+          height: playerHeight, 
           college: shortResponse.college ?? "-",
           position: shortResponse.leagues.standard.pos ?? "-",
-          NBAstartYear: shortResponse.nba.start ?? "-",
+          NBAstartYear: playerStartYear ?? "-",
           weight: shortResponse.weight.pounds ?? "-",
           DOB: shortResponse.birth.date ?? "-",
           country: shortResponse.birth.country ?? "-",
@@ -113,7 +121,7 @@ export class PlayerService {
           height: '',
           college: '',
           position: '',
-          NBAstartYear: NaN,
+          NBAstartYear: '',
           weight: NaN,
           DOB: '',
           country: '',

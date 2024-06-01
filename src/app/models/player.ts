@@ -5,7 +5,7 @@ export class Player {
   height!: string; // In the format: 6'5"
   college!: string; // The college the player went throw;
   position!: string; // The position the player has
-  NBAstartYear!: number; // The year the player started in the NBA
+  NBAstartYear!: string; // The year the player started in the NBA
   //jerseyNum!: number; // The player's current jersey number // Null jersey values?
   weight!: number; // How much the player weighs
   DOB!: string; // Day Of Birth
