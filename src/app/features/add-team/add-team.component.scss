@@ -20,6 +20,7 @@ section {
   .select-team-wrapper {
     display: flex;
     flex-direction: row;
+    width: 325px;
   }
 
   .add-player-wrapper {
@@ -29,7 +30,7 @@ section {
 
     label {
       font-weight: bold;
-      margin-bottom: $padding / 2;
+      margin-bottom: calc($padding / 2);
     }
 
     select {
@@ -41,6 +42,7 @@ section {
       font-size: 1rem;
       color: $font-color;
       background-color: #fff;
+      margin-right: 5px;
 
       &:focus {
         border-color: $primary-color;

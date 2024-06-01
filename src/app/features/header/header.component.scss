@@ -5,7 +5,7 @@ $padding: 10px;
 
 header {
   // background-color: $background-color;
-  padding: $padding * 2;
+  padding: calc($padding * 2);
   // border-radius: 8px;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: right;
@@ -14,11 +14,11 @@ header {
   .title {
     color: $font-color;
     margin-bottom: $padding;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
-  p {
-    color: $secondary-color;
-    font-size: 1.2rem;
-  }
+  // p {
+  //   color: $secondary-color;
+  //   font-size: 1.2rem;
+  // }
 }
