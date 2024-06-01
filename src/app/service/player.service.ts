@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Player } from '../models/player';
 import { Team } from '../models/team';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,7 @@ export class PlayerService {
         search: teamName,
       },
       headers: {
-        'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
+        'X-RapidAPI-Key': environment.SECRET_API_KEY,
         'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
       },
     };
@@ -36,6 +37,8 @@ export class PlayerService {
         teamid: this.response.data.response[0].id,
         name: this.response.data.response[0].name,
         logo: this.response.data.response[0].logo,
+        conference: this.response.data.response[0].leagues.standard.conference,
+        division: this.response.data.response[0].leagues.standard.division
       };
       return this.team;
       //console.log(response.response.length)
@@ -46,6 +49,8 @@ export class PlayerService {
       teamid: 0,
       name: '',
       logo: '',
+      conference: '',
+      division: '',
     });
   }
 
@@ -60,7 +65,7 @@ export class PlayerService {
         season: '2023', // Make sure to change this so it updates to the current year
       },
       headers: {
-        'X-RapidAPI-Key': '5ddd9f18demshd5e344dba252ffep108a80jsn49c46f70d185',
+        'X-RapidAPI-Key': environment.SECRET_API_KEY, 
         'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
       },
     };
