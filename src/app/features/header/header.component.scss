@@ -1,11 +1,8 @@
 @import '../../../styles.scss';
 
-$font-color: #212529;
-$padding: 10px;
-
 header {
   // background-color: $background-color;
-  padding: calc($padding * 2);
+  padding: $padding;
   // border-radius: 8px;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: right;

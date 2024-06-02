@@ -1,8 +1,10 @@
 <section id="team">
   <img src="{{team.logo}}" alt="Team Logo" >
-  <h1>{{ team.name }}</h1>
-  <div class="team-info">
-    <p>Conference: {{ team.conference }}</p>
-    <p>Division: {{ team.division }}</p>
+  <div class="title-wrapper">
+    <h1>{{ team.name }}</h1>
+    <div class="team-info-wrapper">
+      <h5 class="conference">Conference: {{ team.conference }}</h5>
+      <h5>Division: {{ team.division }}</h5>
+    </div>
   </div>
 </section>

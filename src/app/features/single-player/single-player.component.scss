@@ -1,15 +1,12 @@
 @import '../../../styles.scss';
 
-$font-color: #212529;
-$border-color: #ced4da;
-$padding: 10px;
-$margin: 15px;
 $header-bg-color: darken($background-color, 5%);
 $table-header-color: #ffffff;
 
 #roster {
-  background-color: $background-color;
-  padding: $padding * 2;
+  // background-color: $background-color;
+  padding: $padding;
+  padding-top: 0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: $margin;
