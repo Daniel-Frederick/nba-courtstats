@@ -9,13 +9,26 @@ header {
   border-right: 2px solid $primary-color; 
 
   .title {
+    font-family: $koulen;
+    font-weight: 400;
+    font-style: normal;
+    // height: 200px;
     color: $font-color;
-    margin-bottom: $padding;
+    // margin-bottom: $padding;
     font-size: 3rem;
+
+    .court {
+      color: #1D428A; // NBA Blue
+    }
+
+    .stats {
+      color: #C8102E; // NBA Red
+    }
   }
+
 
   // p {
   //   color: $secondary-color;
   //   font-size: 1.2rem;
-  // }
+  // }  padding: 5px 10px;
 }

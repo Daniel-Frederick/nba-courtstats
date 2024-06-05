@@ -1,14 +1,8 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$background-color: #f8f9fa;
-$border-color: #ced4da;
-$font-color: #212529;
-$padding: 10px;
-$margin: 15px;
+@import '../../../styles.scss';
 
 section {
   //background-color: $background-color;
-  padding: $padding * 2;
+  padding: $padding;
   border-radius: 8px;
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
@@ -29,14 +23,18 @@ section {
     align-items: flex-start;
 
     label {
-      font-weight: bold;
-      margin-bottom: calc($padding / 2);
+      font-family: $saira;
+      font-weight: 300;
+      // font-style: normal;
+      margin-bottom: calc($padding / 4);
     }
 
     select {
+      font-family: $saira;
       width: 100%;
-      padding: $padding;
-      margin-bottom: $margin;
+      height: 41px;
+      padding: calc($padding / 2);
+      // margin-bottom: $margin;
       border: 1px solid $border-color;
       border-radius: 4px;
       font-size: 1rem;
@@ -54,7 +52,7 @@ section {
     button {
       background-color: $primary-color;
       color: #fff;
-      padding: $padding;
+      padding: calc($padding / 2);
       border: none;
       border-radius: 4px;
       font-size: 1rem;

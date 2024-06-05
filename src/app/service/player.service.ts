@@ -94,6 +94,12 @@ export class PlayerService {
           playerStartYear = "-";
         }
 
+        let DOBFormatted: string = "-"; 
+        if(shortResponse.birth.date) {
+        // YYYY/MM/DD -> MM/DD/YYYY
+        DOBFormatted = shortResponse.birth.date?.slice(5, 7) + '/' + shortResponse.birth.date?.slice(8, 10) + '/' + shortResponse.birth.date?.slice(0, 4);
+        }
+
         player = {
           playerid: shortResponse.id,
           fullName: shortResponse.firstname + ' ' + shortResponse.lastname,
@@ -102,7 +108,8 @@ export class PlayerService {
           position: shortResponse.leagues.standard.pos ?? "-",
           NBAstartYear: playerStartYear ?? "-",
           weight: shortResponse.weight.pounds ?? "-",
-          DOB: shortResponse.birth.date ?? "-",
+          // DOB: shortResponse.birth.date ?? "-",
+          DOB: DOBFormatted,
           country: shortResponse.birth.country ?? "-",
         };
 
