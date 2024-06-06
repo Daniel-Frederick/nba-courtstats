@@ -1,5 +1,4 @@
-<section>
-  <!-- <h1 class="title">Enter a NBA Team!</h1> -->
+<!-- <section>
   <form (ngSubmit)="onSubmit()">
     <div class="add-player-wrapper">
       <label>Enter a NBA team to view its roster:</label>
@@ -37,6 +36,20 @@
         <option value="Washington Wizards">Washington Wizards</option>
       </select>
       <button type="submit" title="Add Player" id="button">Enter</button>
+      </div>
+    </div>
+  </form>
+</section> -->
+
+<section>
+  <form (ngSubmit)="onSubmit()">
+    <div class="add-player-wrapper">
+      <label>Enter a NBA team to view its roster:</label>
+      <div class="select-team-wrapper">
+        <select name="NBA-Team" [(ngModel)]="teamName" required>
+          <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+        </select>
+        <button type="submit" title="Add Player" id="button" [disabled]="isLoading">Enter</button>
       </div>
     </div>
   </form>
