@@ -3,5 +3,5 @@ import { Team } from './team';
 
 export class PlayerTeam {
   team!: Team;
-  players!: any;
+  players!: Player[];
 }

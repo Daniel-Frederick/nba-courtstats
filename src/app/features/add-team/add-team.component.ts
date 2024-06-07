@@ -10,7 +10,7 @@ import { PlayerTeam } from '../../models/player-team';
   styleUrl: './add-team.component.scss',
 })
 export class AddTeamComponent {
-  @Output() addTeamAndPlayers: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addTeamAndPlayers: EventEmitter<PlayerTeam> = new EventEmitter<PlayerTeam>();
 
   teams: string[] = [
     'Atlanta Hawks',
@@ -47,45 +47,40 @@ export class AddTeamComponent {
 
   teamName: string = this.teams[0]; // Default User Input value
   team!: Team; // Team Object being sent to other components
-  // players!: Player[];
   duplicateTeams: string[] = []; // Keeps track to already entered teams
   isLoading: boolean = false;
 
   constructor(private playerService: PlayerService) {}
 
   async onSubmit() {
-    // Loading Started
-    this.isLoading = true;
-    this.teams = this.teams.filter(team => team !== this.teamName);
+    try {
+      // Loading Started
+      this.isLoading = true;
 
-    // Check to see of the team is already entered
-    if (!this.duplicateTeams.includes(this.teamName) && this.teamName !== '') {
-      try {
-        const team = await this.playerService.getTeam(this.teamName);
-        this.duplicateTeams.push(team.name)
+      // Remove the current team from the list so there are no duplicates
+      this.teams = this.teams.filter(team => team !== this.teamName);
 
-        const players = await this.playerService.getPlayers(team.teamid);
-        console.log('add-team: player ', players);
+      const team = await this.playerService.getTeam(this.teamName);
+      // this.duplicateTeams.push(team.name)
 
-        // Emit a single object with both team and players
-        const teamAndPlayers: any = {
-          team,
-          players,
-        };
-        console.log('add-team teamAndPlayers: ', teamAndPlayers);
-        this.addTeamAndPlayers.emit(teamAndPlayers);
+      const players = await this.playerService.getPlayers(team.teamid);
+      console.log('add-team: player ', players);
 
-        // Set teamName to next team in array
-        this.teamName = this.teams[0];
+      // Emit a single object with both team and players
+      const teamAndPlayers: PlayerTeam = {
+        team,
+        players,
+      };
+      console.log('add-team teamAndPlayers: ', teamAndPlayers);
+      this.addTeamAndPlayers.emit(teamAndPlayers);
 
-        // Loading stopped
-        this.isLoading = false;
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    } else {
-      console.log('This Team has already been entered!');
-      // Tell the user that the team has already been entered. No duplicates
+      // Set teamName to next team in array
+      this.teamName = this.teams[0];
+
+      // Loading stopped
+      this.isLoading = false;
+    } catch (error) {
+      console.error('Error:', error);
     }
   }
 }

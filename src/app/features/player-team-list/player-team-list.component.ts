@@ -10,11 +10,11 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './player-team-list.component.scss', 
 })
 export class PlayerTeamListComponent implements OnInit {
-  playerTeams: any[] = []; 
+  playerTeams: PlayerTeam[] = []; 
 
   ngOnInit(): void {}
 
-  addTeamAndPlayers(teamWithPlayers: any): void {
+  addTeamAndPlayers(teamWithPlayers: PlayerTeam): void {
     console.log('teamAndPlayers method called: ', teamWithPlayers);
 
     this.playerTeams.push(teamWithPlayers);

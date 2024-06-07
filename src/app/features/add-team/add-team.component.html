@@ -49,7 +49,7 @@
         <select name="NBA-Team" [(ngModel)]="teamName" required>
           <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
         </select>
-        <button type="submit" title="Add Player" id="button" [disabled]="isLoading">Enter</button>
+        <button type="submit" title="Add Player" id="button" [disabled]="isLoading" [ngClass]="{ 'loading': isLoading }">Enter</button>
       </div>
     </div>
   </form>

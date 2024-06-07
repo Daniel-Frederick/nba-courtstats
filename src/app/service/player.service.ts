@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Player } from '../models/player';
 import { Team } from '../models/team';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayerService {
-  response!: any;
+  response!: AxiosResponse;
   team!: Team;
   players: Player[] = [];
 
@@ -31,25 +31,23 @@ export class PlayerService {
 
     try {
       this.response = await axios.request(options);
-      console.log('service - response.data: ', this.response.data);
-      //console.log('response.data.response[0]: ', this.response.data.response[0])
+      console.log('typeof response: ', typeof this.response);
+      // console.log('service - response.data: ', this.response.data);
       const shortResponse = this.response.data.response[0];
 
       this.team = {
-        // teamid: this.response.data.response[0].id,
         teamid: shortResponse.id,
         name: shortResponse.name,
         logo: shortResponse.logo,
         conference: shortResponse.leagues.standard.conference ?? "-",
         division: shortResponse.leagues.standard.division ?? "-"
       };
-      return this.team;
-      //console.log(response.response.length)
+      return this.team; 
     } catch (error) {
       console.error('error: for team (service): ', error);
     }
     return (this.team = {
-      teamid: 0,
+      teamid: -1,
       name: '',
       logo: '',
       conference: '',
@@ -65,7 +63,7 @@ export class PlayerService {
       url: 'https://api-nba-v1.p.rapidapi.com/players',
       params: {
         team: teamID,
-        season: '2023', // Make sure to change this so it updates to the current year
+        season: new Date().getFullYear() - 1,
       },
       headers: {
         'X-RapidAPI-Key': environment.SECRET_API_KEY, 
@@ -94,10 +92,24 @@ export class PlayerService {
           playerStartYear = "-";
         }
 
-        let DOBFormatted: string = "-"; 
+        // Date of Birth formatting
+        let dobFormatted: string = "-"; 
         if(shortResponse.birth.date) {
-        // YYYY/MM/DD -> MM/DD/YYYY
-        DOBFormatted = shortResponse.birth.date?.slice(5, 7) + '/' + shortResponse.birth.date?.slice(8, 10) + '/' + shortResponse.birth.date?.slice(0, 4);
+        // MM/DD/YYYY
+        dobFormatted = shortResponse.birth.date?.slice(5, 7) + '/' + shortResponse.birth.date?.slice(8, 10) + '/' + shortResponse.birth.date?.slice(0, 4);
+
+        // Removes leading zeros
+        // Works but website loads too fast to change all DOBs
+        // if(dobFormatted.substring(0, 1) === '0' && dobFormatted.substring(3, 4) === '0') {
+        //   dobFormatted = dobFormatted.slice(3,4);
+        //   dobFormatted = dobFormatted.slice(1);
+        // }
+        // else if(dobFormatted.substring(0, 1) === '0') {
+        //   dobFormatted = dobFormatted.slice(1);
+        // }
+        // else if(dobFormatted.substring(3, 4) === '0') {
+        //   dobFormatted = dobFormatted.slice(3,4);
+        // }
         }
 
         player = {
@@ -108,8 +120,7 @@ export class PlayerService {
           position: shortResponse.leagues.standard.pos ?? "-",
           NBAstartYear: playerStartYear ?? "-",
           weight: shortResponse.weight.pounds ?? "-",
-          // DOB: shortResponse.birth.date ?? "-",
-          DOB: DOBFormatted,
+          DOB: dobFormatted,
           country: shortResponse.birth.country ?? "-",
         };
 

@@ -7,11 +7,11 @@ import { Player } from '../../models/player';
   styleUrl: './single-player.component.scss',
 })
 export class SinglePlayerComponent implements OnInit {
-  @Input() players!: any; // array of arrays
+  @Input() players!: Player[]; // array of arrays
 
   ngOnInit(): void {}
 
-  getPlayers(players: any) {
+  getPlayers(players: Player[]) {
     console.log('singleplayercomp: players param: ', players);
     this.players = players;
   }
