@@ -4,16 +4,15 @@ $header-bg-color: darken($background-color, 5%);
 $table-header-color: #ffffff;
 
 #roster {
-  // background-color: $background-color;
   font-family: $saira;
-  padding: $padding;
+  // padding: $padding;
   padding-top: 0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: $margin;
 
   table {
-    width: 100%;
+    // width: 100%;
     border-collapse: collapse;
     margin-top: $padding;
 
@@ -23,7 +22,6 @@ $table-header-color: #ffffff;
       th {
         padding: $padding;
         color: $table-header-color;
-        text-align: left;
         border-bottom: 2px solid $border-color;
         text-align: center;
       }
@@ -45,6 +43,26 @@ $table-header-color: #ffffff;
           padding: $padding;
           border-bottom: 1px solid $border-color;
           color: $font-color;
+        }
+      }
+    }
+  }
+}
+
+// 
+@media screen and (max-width: 726px) {
+  #roster {
+    table {
+      padding: 0;
+
+      th {
+        padding: 0;
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 0;
         }
       }
     }
