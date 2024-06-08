@@ -17,7 +17,8 @@ export class PlayerTeamListComponent implements OnInit {
   addTeamAndPlayers(teamWithPlayers: PlayerTeam): void {
     console.log('teamAndPlayers method called: ', teamWithPlayers);
 
-    this.playerTeams.push(teamWithPlayers);
+    // this.playerTeams.push(teamWithPlayers);
+    this.playerTeams.unshift(teamWithPlayers);
     console.log('Current playerTeams array: ', this.playerTeams);
   }
 }

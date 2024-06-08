@@ -31,7 +31,6 @@ export class PlayerService {
 
     try {
       this.response = await axios.request(options);
-      console.log('typeof response: ', typeof this.response);
       // console.log('service - response.data: ', this.response.data);
       const shortResponse = this.response.data.response[0];
 
