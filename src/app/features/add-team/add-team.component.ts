@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Player } from '../../models/player';
 import { Team } from '../../models/team';
 import { PlayerService } from '../../service/player.service';
 import { PlayerTeam } from '../../models/player-team';

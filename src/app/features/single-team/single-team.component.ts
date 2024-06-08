@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Team } from '../../models/team';
 
 @Component({
@@ -6,10 +6,8 @@ import { Team } from '../../models/team';
   templateUrl: './single-team.component.html',
   styleUrl: './single-team.component.scss',
 })
-export class SingleTeamComponent implements OnInit {
+export class SingleTeamComponent {
   @Input() team!: Team;
-
-  ngOnInit(): void {}
 
   getTeam(team: Team) {
     console.log('singleteamcomp: team param: ', team);
