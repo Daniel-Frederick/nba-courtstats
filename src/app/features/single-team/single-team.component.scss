@@ -9,7 +9,7 @@
   // border-radius: 8px;
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: $margin;
+  // margin-top: $margin;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,6 +43,7 @@
       justify-content: space-evenly;
 
       h5 {
+        font-weight: 100;
         margin: 0;
         margin-top: 5px;
         font-size: 1rem;
@@ -55,5 +56,30 @@
 
   }
 
+}
 
+@media screen and (max-width: 726px) {
+  #team {
+    flex-direction: column !important;
+    align-items: center !important;
+
+    img {
+      width: 100px !important;
+    }
+
+    .title-wrapper {
+      margin-left: 0 !important;
+
+      h1 {
+        font-size: 2rem !important;
+      }
+
+      .team-info-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+ 
+    }
+
+  }
 }

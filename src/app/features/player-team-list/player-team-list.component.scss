@@ -4,31 +4,49 @@ section {
     // padding: 10px;
     width: 100%;
 
+    .heading-wrapper {
+        background-color: $background-color;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        display: flex;
+        width: 710px;
+        margin: 0 auto;
+        border-radius: 14px;
+        // padding: $padding;
+    }
 
-.heading-wrapper {
-    background-color: $background-color;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    display: flex;
-    width: 710px;
-    margin: 0 auto;
-    border-radius: 14px;
-    // padding: $padding;
+    .player-team-wrapper {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 1000px;
+        margin: 0 auto;
+        padding: $padding;
+        margin-top: $margin;
+    }
 }
 
-.player-team-wrapper {
-    background-color: #fff;
-    border-radius: 8px;
-    // width: 1000px;
-    margin: 0 auto;
-}
+@media screen and (max-width: 1056px) {
+    .player-team-wrapper{
+        width: 100% !important;
+        padding: 0 !important;
+    }
 }
 
 // If screen is less than or equal to 710px
 @media screen and (max-width: 726px) {
     .heading-wrapper {
         flex-direction: column;
+    }
+
+    .player-team-wrapper{
         width: 100% !important;
     }
+}
+
+@media screen and (max-width: 710px) {
+    .heading-wrapper {
+        width: 100% !important;
+    }
+    
 }

@@ -10,11 +10,13 @@ $table-header-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: $margin;
+  overflow-x: auto;
 
   table {
     // width: 100%;
     border-collapse: collapse;
     margin-top: $padding;
+    overflow-x: auto;
 
     thead {
       background-color: $primary-color;
@@ -40,7 +42,7 @@ $table-header-color: #ffffff;
         }
 
         td {
-          padding: $padding;
+          padding: calc($padding / 2);
           border-bottom: 1px solid $border-color;
           color: $font-color;
         }
@@ -50,21 +52,28 @@ $table-header-color: #ffffff;
 }
 
 // 
-@media screen and (max-width: 726px) {
+@media screen and (max-width: 1056px) {
   #roster {
+    overflow-x: auto !important;
     table {
-      padding: 0;
+      // padding: 0;
+      width: 100% !important;
 
       th {
-        padding: 0;
+        padding: 5px !important;
       }
     }
     tbody {
       tr {
         td {
-          padding: 0;
+          padding: 0 !important;
         }
       }
     }
+  }
+
+/* styles.css */
+  .hide-cell {
+    display: none;
   }
 }

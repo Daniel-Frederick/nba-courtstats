@@ -7,8 +7,8 @@
    <th>Height</th>
    <th>Weight</th>
    <th>College</th>
-   <th>NBA Start year</th>
-   <th>Date of Birth</th>
+   <th [class.hide-cell]="isSmallScreen">NBA Start year</th>
+   <th [class.hide-cell]="isSmallScreen">Date of Birth</th>
    <th>Country</th>
   </tr>
   </thead>
@@ -19,8 +19,8 @@
       <td>{{ player.height }}</td>
       <td>{{ player.weight }}</td>
       <td>{{ player.college }}</td>
-      <td>{{ player.NBAstartYear }}</td>
-      <td>{{ player.DOB }}</td>
+      <td [class.hide-cell]="isSmallScreen">{{ player.NBAstartYear }}</td>
+      <td [class.hide-cell]="isSmallScreen">{{ player.DOB }}</td>
       <td>{{ player.country }}</td>
     </tr>
   </tbody>
