@@ -6,7 +6,6 @@ export class Player {
   college!: string; // The college the player went throw;
   position!: string; // The position the player has
   NBAstartYear!: string; // The year the player started in the NBA
-  //jerseyNum!: number; // The player's current jersey number // Null jersey values?
   weight!: number; // How much the player weighs
   DOB!: string; // Day Of Birth
   country!: string; // Where the player is from

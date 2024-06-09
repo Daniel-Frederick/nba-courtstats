@@ -8,7 +8,7 @@ import { HostListener } from '@angular/core';
   styleUrl: './single-player.component.scss',
 })
 export class SinglePlayerComponent {
-  @Input() players!: Player[]; // array of arrays
+  @Input() players!: Player[]; 
 
   isSmallScreen: boolean = false;
 

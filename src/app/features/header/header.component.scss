@@ -9,9 +9,7 @@ header {
     font-family: $koulen;
     font-weight: 400;
     font-style: normal;
-    // height: 200px;
     color: $font-color;
-    // margin-bottom: $padding;
     font-size: 3rem;
 
     .court {
@@ -22,20 +20,12 @@ header {
       color: #C8102E; // NBA Red
     }
   }
-
-
-  // p {
-  //   color: $secondary-color;
-  //   font-size: 1.2rem;
-  // }  padding: 5px 10px;
 }
 
-// 
 @media screen and (max-width: 726px) {
   header {
   border-right: 0;
   border-bottom: 2px solid $primary-color;
-  // width: 100%;
   text-align: center;
   padding: calc($padding / 2);
   }

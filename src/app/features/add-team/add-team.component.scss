@@ -1,10 +1,8 @@
 @import '../../../styles.scss';
 
 section {
-  //background-color: $background-color;
   padding: $padding;
   border-radius: 8px;
-  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .title {
     color: $font-color;
@@ -14,28 +12,21 @@ section {
   .select-team-wrapper {
     display: flex;
     flex-direction: row;
-    // width: 325px;
   }
 
   .add-player-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // width: 100%
 
     label {
       font-family: $saira;
       font-weight: 300;
-      // font-style: normal;
       margin-bottom: calc($padding / 4);
     }
 
     select {
       font-family: $saira;
-      // width: 100%;
-      // height: 41px;
-      // padding: calc($padding / 2);
-      // margin-bottom: $margin;
       border: 1px solid $border-color;
       border-radius: 4px;
       font-size: 1rem;
@@ -60,7 +51,6 @@ section {
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      // height: 41px;
 
       &:hover {
         background-color: darken($primary-color, 10%);
@@ -71,26 +61,14 @@ section {
       }
 
       &.loading {
-        // background-color: lighten($primary-color, 50%);
         background-color: darken($color: $primary-color, $amount: 25%);
-        // background-color: black;
       }
     }
   }
 }
 
 @media screen and (max-width: 726px) {
-
   section {
     padding: calc($padding / 2);
   }
 }
-
-/*
-Add responsive web design - almost done
-Make sure the website is hosted correctly
-add any finishing touches if needed
-Create favicon
-
-add to LinkedIn, GitHub, Resume
-*/
