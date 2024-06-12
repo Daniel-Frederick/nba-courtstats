@@ -10,10 +10,10 @@ $table-header-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: $margin;
   overflow-x: auto;
+  margin-top: $padding;
 
   table {
     border-collapse: collapse;
-    margin-top: $padding;
     overflow-x: auto;
 
     thead {
