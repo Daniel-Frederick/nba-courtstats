@@ -1,15 +1,3 @@
-<!-- <section>
-  <form label="Add Player" class="add-player-wrapper" (ngSubmit)="onSubmit()">
-      <label>Enter a NBA team to view its roster:</label>
-      <div class="select-team-wrapper">
-        <select name="NBA-Team" [(ngModel)]="teamName" required>
-          <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
-        </select>
-        <button type="submit" title="Add Player" id="button" [disabled]="isLoading" [ngClass]="{ 'loading': isLoading }">Enter</button>
-      </div>
-  </form>
-</section> -->
-
 <section>
   <form label="Add Player" class="add-player-wrapper" (ngSubmit)="onSubmit()">
     <label for="nba-team-select">Enter a NBA team to view its roster:</label>
