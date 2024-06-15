@@ -2,5 +2,5 @@
 
 A personal website called NBA CourtStats.
 
-Architecture:
-<img src="src/assets/nbacourstatarch.PNG" alt="NBA-CourtStat's Architecture" width="500px" height="600px">
+<p>Architecture:</p>
+<img src="src/assets/nbacourstatarch.PNG" alt="NBA-CourtStat's Architecture" width="600px">
