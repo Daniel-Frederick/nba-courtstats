@@ -1,6 +1,6 @@
 <h1>NBA CourtStats</h1>
 
-NBA CourtStats is a personal web application project hosted by Firebase. It's designed to display multiple NBA team rosters and player information all on one page. The application uses the Angular framework to send GET requests to the API called API-NBA (https://rapidapi.com/api-sports/api/api-nba) to access current information about each NBA team. 
+NBA CourtStats is a personal web application project hosted by Firebase. It's designed to display multiple NBA team rosters and player information all on one page. The application uses the Angular framework to send GET requests to the API called API-NBA (rapidapi.com/api-sports/api/api-nba) to access current information about each NBA team. 
 
 After gaining a lot of experience at Flyer Enterprises as a Software Developer, I revisited my previous project, Playlist Parade, and realized it was not well programmed. It didn't use services, should have utilized SCSS to avoid redundant styling, and lacked responsive web design.
 
